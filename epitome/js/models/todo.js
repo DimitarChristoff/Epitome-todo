@@ -7,8 +7,6 @@
 
 		Extends: Epitome.Model,
 
-		Implements: Epitome.Storage,
-
 		options: {
 			defaults: {
 				status: 'Incomplete',
@@ -21,6 +19,8 @@
 	App.TodoCollection = new Class({
 
 		Extends: Epitome.Collection,
+
+		Implements: Epitome.Storage.sessionStorage('collection'),
 
 		model: App.Todo
 

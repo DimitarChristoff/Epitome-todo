@@ -1,0 +1,3 @@
+[submodule "vendor/epitome"]
+	path = vendor/epitome
+	url = https://github.com/DimitarChristoff/Epitome.git
