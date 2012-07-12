@@ -83,10 +83,14 @@
 		},
 
 		render: function() {
-			var completed = this.collection.filter(function(el) {
-				return el.get('completed') == 'completed';
-			}).length,
-				remaining = this.collection.length - completed;
+			var remaining = 0,
+				completed = this.collection.filter(function(el) {
+					var status = el.get('completed') == 'completed';
+					if (!status)
+						remaining++;
+
+					return status;
+				}).length;
 
 			this.footer.set('html', this.template({
 				completed: completed,

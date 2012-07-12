@@ -13,7 +13,7 @@
 		model: App.Todo,
 
 		todoFilter: function(model) {
-			return model.get('completed') == this.filterType;
+			return this.filterType === false ? true : model.get('completed') == this.filterType;
 		}
 
 	});
