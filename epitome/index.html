@@ -35,14 +35,12 @@
 	</footer>
 
     <script type="text/template" id="item-template">
-        <li id="<%=id%>" class="<%=completed%>">
-            <div class="view">
-                <input class="toggle" type="checkbox" <%=completedCheckbox%> />
-                <label><%=title%></label>
-                <button class="destroy"></button>
-            </div>
-            <input class="edit" type="text" value="<%=title%>" />
-        </li>
+        <div class="view">
+            <input class="toggle" type="checkbox" <%=completedCheckbox%> />
+            <label><%=title%></label>
+            <button class="destroy"></button>
+        </div>
+        <input class="edit" type="text" value="<%=title%>" />
     </script>
 
     <script type="text/template" id="stats-template">

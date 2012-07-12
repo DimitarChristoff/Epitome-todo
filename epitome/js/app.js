@@ -1,6 +1,7 @@
 (function(window) {
 	'use strict';
 
+	return;
 	// Your starting point. Enjoy the ride!
 	var collection = new App.TodoCollection(null, {
 		id: 'todos'
@@ -9,7 +10,7 @@
 	// populate from storage if available
 	collection.setUp(collection.retrieve());
 
-	App.todoView = new App.TodoView({
+	App.todosView = new App.TodoView({
 
 		collection: collection,
 
