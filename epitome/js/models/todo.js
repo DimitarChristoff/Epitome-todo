@@ -9,8 +9,8 @@
 
 		options: {
 			defaults: {
-				status: 'Incomplete',
-				todo: ''
+				completed: 'completed',
+				title: ''
 			}
 		}
 	});
@@ -40,7 +40,10 @@
 
 			this.empty();
 			this.collection.each(function(model) {
-				views.push(self.template(model.toJSON()));
+				var obj = model.toJSON();
+
+				obj.completedCheckbox = obj.completed ? 'checked="checked"' : '';
+				views.push(self.template(obj));
 			});
 
 			this.element.set('html', views.join(''));
