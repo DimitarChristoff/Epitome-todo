@@ -3,20 +3,6 @@
 
 	window.App = window.App || {};
 
-
-	// base structure for the todos themselves
-	App.Todo = new Class({
-
-		Extends: Epitome.Model,
-
-		options: {
-			defaults: {
-				completed: 'active',
-				title: ''
-			}
-		}
-	});
-
 	// a collection that holds the todos
 	App.TodoCollection = new Class({
 
@@ -24,7 +10,11 @@
 
 		Implements: Epitome.Storage.sessionStorage('collection'),
 
-		model: App.Todo
+		model: App.Todo,
+
+		todoFilter: function(model) {
+			return model.get('completed') == this.filterType;
+		}
 
 	});
 

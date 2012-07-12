@@ -47,13 +47,13 @@
 		<span id="todo-count"><strong><%=remaining%></strong> item<% if (obj.remaining != 1) { %>s<% } %> left</span>
 		<ul id="filters">
 			<li>
-				<a class="selected" href="#/">All</a>
+				<a class="selected" href="#!/">All</a>
 			</li>
 			<li>
-				<a href="#/active">Active</a>
+				<a href="#!/active">Active</a>
 			</li>
 			<li>
-				<a href="#/completed">Completed</a>
+				<a href="#!/completed">Completed</a>
 			</li>
 		</ul>
 		<% if (completed) { %>
@@ -66,6 +66,7 @@
 	<script src="../vendor/epitome/example/lib/mootools-core.js"></script>
 	<script src="../vendor/epitome/Epitome-min.js"></script>
 	<script src="js/models/todo-model.js"></script>
+    <script src="js/collections/todo-collection.js"></script>
 	<script src="js/views/todo-list.js"></script>
 	<script src="js/views/todo-main.js"></script>
 	<script src="js/app.js"></script>

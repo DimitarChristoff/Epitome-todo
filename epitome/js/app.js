@@ -32,4 +32,28 @@
 	});
 
 
+	App.router = new Epitome.Router({
+		routes: {
+			'': 'init',
+			'#!/': 'applyFilter',
+			'#!/:filter': 'applyFilter'
+		},
+
+		onInit: function() {
+			this.navigate('#!/');
+		},
+
+		onApplyFilter: function(filter) {
+			collection.filterType = filter || false;
+			App.todoView.render();
+
+			var self = this;
+			document.getElements('#filters li a').each(function(link) {
+				link.set('class', link.get('href') == self.req ? 'selected' : '');
+			});
+		}
+
+	});
+
+
 })(window);

@@ -66,7 +66,7 @@
 
 			onStatusChange: function(e, el) {
 				var p = el.getParent('li'),
-					done = !!el.get('checked') ? 'completed' : '',
+					done = !!el.get('checked') ? 'completed' : 'active',
 					toggler = document.id('toggle-all');
 
 				p.retrieve('model').set('completed', done);
@@ -83,11 +83,12 @@
 
 
 			this.empty();
-			this.collection.each(function(model) {
-				var obj = model.toJSON(),
-					li = new Element(self.tagName).toggleClass('completed', !!obj.completed).store('model', model);
+			this.collection.filter(this.collection.todoFilter.bind(this.collection)).each(function(model) {
 
-				obj.completedCheckbox = obj.completed ? 'checked="checked"' : '';
+				var obj = model.toJSON(),
+					li = new Element(self.tagName).toggleClass('completed', obj.completed == 'completed').store('model', model);
+
+				obj.completedCheckbox = obj.completed == 'completed' ? 'checked="checked"' : '';
 				views.push(li.set('html', self.template(obj)));
 			});
 

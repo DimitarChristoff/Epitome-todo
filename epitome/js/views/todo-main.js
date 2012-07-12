@@ -13,18 +13,22 @@
 				'change:relay(#new-todo)': 'addTodo',
 				'keypress:relay(#new-todo)': 'handleKeypress',
 				'click:relay(#toggle-all)': 'toggleAll',
-				'click:relay(#clear-completed)': 'clearCompleted'
+				'click:relay(#clear-completed)': 'clearCompleted',
+				'click:relay(#filters.a)': 'setFilters'
 			},
 
 			newTodo: 'new-todo',
 
 			footer: 'footer',
 
+			filters: '#filters li a',
+
 			toggleAll: 'toggle-all',
 
 			onToggleAll: function(e, el) {
+				var state = el.get('checked') ? 'completed' : 'active';
 				this.collection.each(function(model) {
-					model.set('completed', el.get('checked') ? 'completed' : '');
+					model.set('completed', state);
 				});
 			},
 
@@ -39,7 +43,7 @@
 			onClearCompleted: function() {
 				// becasue removing a model reindexes, cannot apply that in a normal loop.
 				var toRemove = this.collection.filter(function(model) {
-					return model.get('completed');
+					return model.get('completed') == 'completed';
 				});
 
 				// grab individual models and remove them.
@@ -71,7 +75,7 @@
 			if (val.length) {
 				this.collection.addModel({
 					title: val,
-					completed: ''
+					completed: 'active'
 				});
 			}
 
@@ -80,7 +84,7 @@
 
 		render: function() {
 			var completed = this.collection.filter(function(el) {
-				return el.get('completed');
+				return el.get('completed') == 'completed';
 			}).length,
 				remaining = this.collection.length - completed;
 
@@ -90,6 +94,7 @@
 			}));
 
 			this.toggleAll.set('checked', !remaining);
+
 		}
 
 	});
