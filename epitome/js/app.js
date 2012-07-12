@@ -1,6 +1,8 @@
 (function(window) {
 	'use strict';
 
+	var App = window.App;
+
 	// Your starting point. Enjoy the ride!
 	var collection = new App.TodoCollection(null, {
 		id: 'todos'
