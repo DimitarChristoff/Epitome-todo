@@ -1,3 +1,0 @@
-[submodule "vendor/epitome"]
-	path = vendor/epitome
-	url = git://github.com/DimitarChristoff/Epitome.git
