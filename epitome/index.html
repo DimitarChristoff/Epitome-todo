@@ -31,6 +31,7 @@
 		<!-- Remove the below line ↓ -->
 		<!-- Change this out with your name and url ↓ -->
 		<p>Created by <a href="https://github.com/DimitarChristoff/">Dimitar Christoff</a></p>
+        <p>Powered by <a href="https://github.com/DimitarChristoff/Epitome">Epitome for MooTools</a></p>
 		<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 	</footer>
 
@@ -65,10 +66,13 @@
 	<script src="../assets/base.js"></script>
 
     <!-- mootools -->
-    <script src="../../lib/mootools-core.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
 
     <!-- epitome pre-compiled -->
 	<script src="../../../Epitome-min.js"></script>
+
+    <!-- fallback outside the main repo submodule-->
+    <script>window.Epitome || document.write('<script src="js/Epitome-min.js">\x3C/script>')</script>
 
     <!-- todo app -->
     <script src="js/models/todo-model.js"></script>
