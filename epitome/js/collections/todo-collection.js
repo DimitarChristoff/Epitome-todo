@@ -8,7 +8,7 @@
 
 		Extends: Epitome.Collection,
 
-		Implements: Epitome.Storage.sessionStorage('collection'),
+		Implements: Epitome.Storage.localStorage('collection'),
 
 		model: App.Todo,
 
