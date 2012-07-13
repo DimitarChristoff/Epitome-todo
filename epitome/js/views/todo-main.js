@@ -47,7 +47,8 @@
 				});
 
 				// grab individual models and remove them.
-				Array.each(toRemove, this.collection.removeModel.bind(this.collection))
+				this.collection.removeModel(toRemove);
+				this.render();
 			},
 
 			onAddTodo: function() {
@@ -97,7 +98,7 @@
 				remaining: remaining
 			}));
 
-			this.toggleAll.set('checked', !remaining);
+			this.toggleAll.set('checked', this.collection.length ? !remaining : false);
 
 		}
 
