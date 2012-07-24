@@ -64,7 +64,6 @@
 			'onChange:collection': function() {
 				// also, re-render on change of collection
 				this.render();
-				console.log('change');
 			},
 
 			'onAdd:collection': function() {
