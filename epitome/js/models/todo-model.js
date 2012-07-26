@@ -1,8 +1,9 @@
-;(function(window) {
+/*global Epitome, App */
+/*jshint mootools:true */
+(function(window) {
 	'use strict';
 
 	window.App = window.App || {};
-
 
 	// base structure for the todos themselves
 	App.Todo = new Class({
@@ -11,7 +12,7 @@
 
 		options: {
 			defaults: {
-				completed: 'active',
+				completed: false,
 				title: ''
 			}
 		}
@@ -27,6 +28,4 @@
 		model: App.Todo
 
 	});
-
-
-}(window));
+}( window ));

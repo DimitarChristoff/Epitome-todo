@@ -1,11 +1,12 @@
-;(function(window) {
+/*global Epitome, App */
+/*jshint mootools:true */
+(function(window) {
 	'use strict';
 
 	window.App = window.App || {};
 
 	// a collection that holds the todos
 	App.TodoCollection = new Class({
-
 		// normal collection or Collection.Sync
 		Extends: Epitome.Collection,
 
@@ -15,12 +16,14 @@
 		// base model class prototype
 		model: App.Todo,
 
-		todoFilter: function(model) {
+		map: {
+			active: 0,
+			completed: 1
+		},
+
+		todoFilter: function( model ) {
 			// references the filterType which the controller sets
-			return this.filterType === false ? true : model.get('completed') == this.filterType;
+			return this.filterType === false ? true : this.map[this.filterType] === +model.get( 'completed' );
 		}
-
 	});
-
-
-}(window));
+}( window ));
