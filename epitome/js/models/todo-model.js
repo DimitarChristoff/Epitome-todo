@@ -18,14 +18,4 @@
 		}
 	});
 
-	// a collection that holds the todos
-	App.TodoCollection = new Class({
-
-		Extends: Epitome.Collection,
-
-		Implements: Epitome.Storage.sessionStorage('collection'),
-
-		model: App.Todo
-
-	});
 }( window ));
