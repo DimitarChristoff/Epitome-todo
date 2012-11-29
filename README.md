@@ -21,5 +21,4 @@ There are two views, one for the main app rendering and events (`todo-main.js`) 
 `todo-list/js`. Both of these views are bound to the collection in `todo-collection.js` and render their respective
 parts of the app by listening to the same events on the collection.
 
-Backbone instead have a single application view that uses a subview to create individual todo items as elements only
-and then renders it all at the same time.
+Backbone instead have a single application view that uses a subview to create individual todo items as elements only and then renders it all at the same time.
