@@ -1,20 +1,22 @@
 /*global Epitome, App */
 /*jshint mootools:true */
-(function(window) {
+define([
+	'epitome/epitome-collection',
+	'epitome/epitome-storage',
+	'models/todo-model'
+], function(Collection, Storage, Model){
 	'use strict';
 
-	window.App = window.App || {};
-
 	// a collection that holds the todos
-	App.TodoCollection = new Class({
+	return new Class({
 		// normal collection or Collection.Sync
-		Extends: Epitome.Collection,
+		Extends: Collection,
 
 		// enable storage methods, namespaced as collection.
-		Implements: Epitome.Storage.localStorage('collection'),
+		Implements: Storage.localStorage('collection'),
 
 		// base model class prototype
-		model: App.Todo,
+		model: Model,
 
 		map: {
 			active: 0,
@@ -26,4 +28,4 @@
 			return this.filterType === false ? true : this.map[this.filterType] === +model.get( 'completed' );
 		}
 	});
-}( window ));
+});

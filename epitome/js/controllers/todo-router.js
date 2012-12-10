@@ -1,14 +1,24 @@
 /*global Epitome, App */
 /*jshint mootools:true */
-(function(window) {
+define(['epitome/epitome-router'], function(Router){
 	'use strict';
 
-	window.App = window.App || {};
+	return new Class({
 
-	App.Router = new Class({
+		Extends: Router,
 
-		Extends: Epitome.Router,
+		options: {
+			routes: {
+				'': 'init',
+					'#!/': 'applyFilter',
+					'#!/:filter': 'applyFilter'
+			},
 
+			onInit: function() {
+				// we want to always have a state
+				this.navigate('#!/');
+			}
+		},
 		showActiveFilter: function() {
 			// fix up the links for current filter
 			var self = this;
@@ -18,5 +28,4 @@
 		}
 	});
 
-
-}( window ));
+});

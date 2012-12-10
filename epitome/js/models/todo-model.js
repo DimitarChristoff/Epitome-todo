@@ -1,14 +1,11 @@
 /*global Epitome, App */
 /*jshint mootools:true */
-(function(window) {
+define(['epitome/epitome-model'], function(Model) {
 	'use strict';
 
-	window.App = window.App || {};
+	return new Class({
 
-	// base structure for the todos themselves
-	App.Todo = new Class({
-
-		Extends: Epitome.Model,
+		Extends: Model,
 
 		options: {
 			defaults: {
@@ -18,4 +15,4 @@
 		}
 	});
 
-}( window ));
+});

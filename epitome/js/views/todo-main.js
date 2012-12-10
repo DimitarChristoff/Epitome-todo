@@ -1,14 +1,12 @@
 /*global Epitome, App */
 /*jshint mootools:true */
-(function( window ) {
+define(['epitome/epitome-view'], function(View) {
 	'use strict';
 
-	window.App = window.App || {};
-
-	App.MainView = new Class({
+	return new Class({
 		// main view (presenter) encapsulating the app itself.
 
-		Extends: Epitome.View,
+		Extends: View,
 
 		options: {
 			// eavesdrop on these events
@@ -125,4 +123,4 @@
 			this.toggleAll.set( 'checked', this.collection.length ? !remaining : false );
 		}
 	});
-}( window ));
+});
