@@ -128,7 +128,7 @@ define(['epitome/epitome-view'], function(View){
 
 			// inject the elements collection into the container element
 			this.element.adopt(todos);
-			
+
 			// propagate the render event.
 			this.parent();
 			return this;

@@ -10,20 +10,20 @@ define(['epitome/epitome-router'], function(Router){
 		options: {
 			routes: {
 				'': 'init',
-					'#!/': 'applyFilter',
-					'#!/:filter': 'applyFilter'
+				'#!/': 'applyFilter',
+				'#!/:filter': 'applyFilter'
 			},
 
-			onInit: function() {
+			onInit: function(){
 				// we want to always have a state
 				this.navigate('#!/');
 			}
 		},
-		showActiveFilter: function() {
+		showActiveFilter: function(){
 			// fix up the links for current filter
 			var self = this;
-			document.getElements( '#filters li a' ).each(function( link ) {
-				link.set( 'class', link.get( 'href' ) === self.req ? 'selected' : '' );
+			document.getElements('#filters li a').each(function(link){
+				link.set('class', link.get('href') === self.req ? 'selected' : '');
 			});
 		}
 	});

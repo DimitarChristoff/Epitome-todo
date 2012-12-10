@@ -1,6 +1,6 @@
 /*global Epitome */
 /*jshint mootools:true */
-(function(window) {
+(function(window){
 	'use strict';
 
 	require.config({
@@ -19,7 +19,7 @@
 		'views/todo-list',
 		'views/todo-main',
 		'controllers/todo-router'
-	], function(Collection, ListView, ListOuterView, Router) {
+	], function(Collection, ListView, ListOuterView, Router){
 		var todos = new Collection(null, {
 			// a consistent collection if is needed if you want to use storage for a collection
 			id: 'todos'
@@ -51,9 +51,9 @@
 			// stats template from DOM
 			template: document.id('stats-template').get('text'),
 
-			onReady: function() {
+			onReady: function(){
 				// need to work with controller that sets the current state of filtering
-				var proxy = function() {
+				var proxy = function(){
 					router.showActiveFilter();
 				};
 
@@ -66,7 +66,7 @@
 
 
 		var router = new Router({
-			onApplyFilter: function(filter) {
+			onApplyFilter: function(filter){
 				// the filter is being used by the todo collection and view.
 				// when false, the whole collection is being passed.
 				todos.filterType = filter || false;
