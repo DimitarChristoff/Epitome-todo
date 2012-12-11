@@ -23,8 +23,6 @@ define([
 			completed: 1
 		},
 
-		filterType: false,
-
 		todoFilter: function(model){
 			// references the filterType which the controller sets
 			return this.filterType === false ? true : this.map[this.filterType] === +model.get('completed');

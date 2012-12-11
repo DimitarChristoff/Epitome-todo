@@ -25,9 +25,11 @@
 			id: 'todos'
 		});
 
+		todos.filterType = false;
+
 		todos.setUp(todos.retrieve());
 
-		new ListView({
+		var list = new ListView({
 
 			// bind to the collection and its events and model events
 			collection: todos,
@@ -72,7 +74,7 @@
 				todos.filterType = filter || false;
 
 				// render as per current filter
-				view.render();
+				list.render();
 
 				this.showActiveFilter();
 			}
