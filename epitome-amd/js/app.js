@@ -21,13 +21,13 @@
 		'controllers/todo-router'
 	], function(Collection, ListView, ListOuterView, Router){
 		var todos = new Collection(null, {
-			// a consistent collection if is needed if you want to use storage for a collection
+			// a consistent id is needed if you want to use storage for a collection
 			id: 'todos'
 		});
 
 		todos.filterType = false;
 
-		todos.setUp(todos.retrieve());
+		todos.setUp(todos.retrieve()); // restore models from storage
 
 		var list = new ListView({
 
